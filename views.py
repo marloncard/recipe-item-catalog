@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
 from models import Base, Category, Recipe, User
 
@@ -15,20 +15,19 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-# Home page of catalog showing latest recipes added
+# Home page of catalog showing latest recipes added in descending order
 @app.route('/')
 @app.route('/catalog')
 def showCatalog():
-    output = ''
-    output += '<h1>Hello world!</h1>'
-    output += '<p>This page will show categories and latest recipes</p>'
-    return output
+    categories = session.query(Category).order_by(asc(Category.name)).all()
+    latest_recipes = session.query(Recipe).order_by(desc(Recipe.id)).limit(10).all()
+    return render_template('home.html', categories=categories, latest_recipes=latest_recipes)
 
 
 # Show all recipes in a particular category with sidebar
 @app.route('/catalog/<string:category_name>/recipes')
 def showCategory(category_name):
-    categories = session.query(Category).order_by(asc(Category.name))
+    categories = session.query(Category).order_by(asc(Category.name)).all()
     category = session.query(Category).filter_by(name=category_name).one()
     recipes = session.query(Recipe).filter_by(category_id=category.id)
     return render_template('recipe-category.html', categories=categories, recipes=recipes, category=category)
