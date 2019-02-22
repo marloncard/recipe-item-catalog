@@ -12,12 +12,14 @@ session = DBSession()
 
 # Create initial user to associate recipes
 user1 = User(name="Admin Bob", email="admin_bob@gmail.com",
-            picture="https://www.publicdomainpictures.net/pictures/270000/velka/apple-piepieicon-sign-food-d.jpg")
+             picture="https://www.publicdomainpictures.net/pictures/270000/velka/apple-piepieicon-sign-food-d.jpg")
 session.add(user1)
 session.commit()
 
 
 category1 = Category(user_id=1, name="Breakfast")
+session.add(category1)
+session.commit()
 breakfast1 = Recipe(user_id=1, name="French Toast",
                     instructions="""Place bread cubes in an instant pot. For
                     chewier French toast, leave the bread out overnight to get
@@ -33,6 +35,8 @@ breakfast1 = Recipe(user_id=1, name="French Toast",
                     2 Eggs\r\n1 Cup milk\r\n2 Teaspoons vanilla extract\r\n2
                     Tablespoons ground cinnamon\r\n½ Teaspoon ground ginger""",
                     category=category1)
+session.add(breakfast1)
+session.commit()
 breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
                     instructions="""In a large bowl, whisk together the egg,
                     milk, butter, sugar and vanilla. In a separate bowl, stir
@@ -48,6 +52,8 @@ breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
                     ground nutmeg\r\n½ Teaspoon ground ginger\r\n1 Teaspoon
                     salt\r\n1 ½ Cups flour\r\n3 ½ Teaspoons baking powder""",
                     category=category1)
+session.add(breakfast2)
+session.commit()
 breakfast3 = Recipe(user_id=1, name="Breakfast Egg Muffins",
                     instructions="""Whisk together the eggs in a large bowl. Add
                     the salt, pepper, garlic powder, onion, green pepper, bacon,
@@ -62,8 +68,13 @@ breakfast3 = Recipe(user_id=1, name="Breakfast Egg Muffins",
                     a green pepper, chopped\r\n½ cup cooked bacon, chopped\r\n
                     4 ounces Cheddar cheese, shredded""",
                     category=category1)
+session.add(breakfast3)
+session.commit()
+
 
 category2 = Category(user_id=1, name="Appetizers")
+session.add(category2)
+session.commit()
 appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
                     instructions="""Preheat the oven 425F, follow directions
                     above and bake on a sheet pan until golden and crisp, 10 to
@@ -82,3 +93,62 @@ appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
                     lime juice\r\n1/2 teaspoon lime chili seasoning salt, such
                     as Tajin Classic\r\n1/8 teaspoon kosher salt""",
                     category="category2")
+session.add(appetizer1)
+session.commit()
+appetizer2 = Recipe(user_id=1, name="Basil Aioli with Crudites",
+                    instructions="""Combine first 6 ingredients in a food
+                    processor, and process until smooth. (Will keep, covered in
+                    refrigerator, up to 2 days.) Serve with assorted
+                    vegetables.""",
+                    ingredients="""1 cup mayonnaise\r\n1/2 cup tightly packed
+                    fresh basil leaves\r\n1 garlic clove, minced \r\n1/2
+                    teaspoon lemon zest \r\n2 teaspoons fresh lemon juice\r\n
+                    Pinch of salt\r\nAssorted vegetables""",
+                    category="category2")
+session.add(appetizer2)
+session.commit()
+
+
+category3 = Category(user_id=1, name="Quick-Meals")
+session.add(category3)
+session.commit()
+quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
+                    instructions="""In a microwave-safe dish, with water,
+                    cover and microwave potatoes on high until tender -
+                    around 7 minutes. While potatoes are cooking, brown beef
+                    and  sweat onion; drain. Add drained potatoes to skillet.
+                    Stir in peas, chili starter, salt and parsley. Bring to
+                    boil. Simmer, uncovered around 5 minutes. Serve with sour
+                    cream, optionally.""",
+                    ingredients="""1 pound medium potatoes, cubed\r\n1/2 cup
+                    water\r\n1 pound ground beef\r\n1 medium onion,
+                    chopped\r\n1 can (15½ ounces) chili starter\r\n1 cup
+                    frozen peas\r\n2 tablespoons minced fresh parsley\r\n¼
+                    teaspoon salt\r\nSour cream, optional""",
+                    category="category3")
+session.add(quickmeal1)
+session.commit()
+quickmeal2 = Recipe(user_id=1, name="Parmesan Garlic Grilled Corn On The Cob",
+                    instructions="""Preheat grill to 400F. Melt butter and add
+                    cheese, garlic powder, salt, and Italian seasonings. Stir
+                    well. Add corn to large piece of foil and pour mixture
+                    evenly over the top of the corn. Wrap with more foil so the
+                    top is covered. Grill for 30 minutes or until done.""",
+                    ingredients="""4 ears of corn/r/n1/2 cup Food Lion parmesan
+                    cheese, grated/r/n1 teaspoon garlic powder/r/n1/2 cup
+                    butter, melted/r/n1/2 teaspoon Food Lion Italian dressing
+                    /r/n1/4 teaspoon salt""",
+                    category="category3")
+session.add(quickmeal2)
+session.commit()
+
+
+category4 = Category(user_id=1, name="Dinner")
+
+category5 = Category(user_id=1, name="Dessert")
+
+category6 = Category(user_id=1, name="Lunch")
+
+category7 = Category(user_id=1, name="Snack")
+
+category8 = Category(user_id=1, name="Brunch")
