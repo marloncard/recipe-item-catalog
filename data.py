@@ -33,7 +33,7 @@ breakfast1 = Recipe(user_id=1, name="French Toast",
                     syrup, butter, powdered sugar or whipped cream.""",
                     ingredients="""8 Thick-cut slices of French bread, cubed\r\n
                     2 Eggs\r\n1 Cup milk\r\n2 Teaspoons vanilla extract\r\n2
-                    Tablespoons ground cinnamon\r\n½ Teaspoon ground ginger""",
+                    Tablespoons ground cinnamon\r\n1/2 Teaspoon ground ginger""",
                     category=category1)
 session.add(breakfast1)
 session.commit()
@@ -46,11 +46,11 @@ breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
                     heat and drop in 1/3 cup of the batter at a time. Flip once
                     when first side is golden brown. Continue until all batter
                     is cooked. Top with maple syrup and serve warm.""",
-                    ingredients="""1 Egg\r\n1 ¼ Cup milk\r\n3 Tablespoons melted
+                    ingredients="""1 Egg\r\n1 1/4 Cup milk\r\n3 Tablespoons melted
                     butter\r\n1 Tablespoon sugar\r\n 1 Teaspoon vanilla\r\n1
-                    Teaspoon cinnamon\r\n½ Teaspoon ground cloves\r\n½ Teaspoon
-                    ground nutmeg\r\n½ Teaspoon ground ginger\r\n1 Teaspoon
-                    salt\r\n1 ½ Cups flour\r\n3 ½ Teaspoons baking powder""",
+                    Teaspoon cinnamon\r\n1/2 Teaspoon ground cloves\r\n1/2 Teaspoon
+                    ground nutmeg\r\n1/2 Teaspoon ground ginger\r\n1 Teaspoon
+                    salt\r\n1 1/2 Cups flour\r\n3 1/2 Teaspoons baking powder""",
                     category=category1)
 session.add(breakfast2)
 session.commit()
@@ -60,12 +60,12 @@ breakfast3 = Recipe(user_id=1, name="Breakfast Egg Muffins",
                     and Cheddar and combine all ingredients. Line a muffin tin
                     with paper liners (these egg muffins love to stick even with
                     spray, so liners work best). Spoon the mixture into each
-                    cup of the muffin tin; fill approximately ¾ full as these
+                    cup of the muffin tin; fill approximately 3/4 full as these
                     will puff up as they cook. Bake in a 350 degree oven for
                     about 20 minutes or until set. Serve hot.""",
-                    ingredients="""12 eggs\r\n¼ teaspoon pepper\r\n½ teaspoon salt
-                    \r\n½ teaspoon garlic powder\r\n½ an onion, chopped\r\n½ of
-                    a green pepper, chopped\r\n½ cup cooked bacon, chopped\r\n
+                    ingredients="""12 eggs\r\n1/4 teaspoon pepper\r\n1/2 teaspoon salt
+                    \r\n1/2 teaspoon garlic powder\r\n1/2 an onion, chopped\r\n1/2 of
+                    a green pepper, chopped\r\n1/2 cup cooked bacon, chopped\r\n
                     4 ounces Cheddar cheese, shredded""",
                     category=category1)
 session.add(breakfast3)
@@ -92,7 +92,7 @@ appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
                     \r\n3 tablespoons light mayonnaise\r\n2 teaspoons fresh
                     lime juice\r\n1/2 teaspoon lime chili seasoning salt, such
                     as Tajin Classic\r\n1/8 teaspoon kosher salt""",
-                    category="category2")
+                    category=category2)
 session.add(appetizer1)
 session.commit()
 appetizer2 = Recipe(user_id=1, name="Basil Aioli with Crudites",
@@ -104,7 +104,7 @@ appetizer2 = Recipe(user_id=1, name="Basil Aioli with Crudites",
                     fresh basil leaves\r\n1 garlic clove, minced \r\n1/2
                     teaspoon lemon zest \r\n2 teaspoons fresh lemon juice\r\n
                     Pinch of salt\r\nAssorted vegetables""",
-                    category="category2")
+                    category=category2)
 session.add(appetizer2)
 session.commit()
 
@@ -122,10 +122,10 @@ quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
                     cream, optionally.""",
                     ingredients="""1 pound medium potatoes, cubed\r\n1/2 cup
                     water\r\n1 pound ground beef\r\n1 medium onion,
-                    chopped\r\n1 can (15½ ounces) chili starter\r\n1 cup
-                    frozen peas\r\n2 tablespoons minced fresh parsley\r\n¼
+                    chopped\r\n1 can (15 1/2 ounces) chili starter\r\n1 cup
+                    frozen peas\r\n2 tablespoons minced fresh parsley\r\n1/4
                     teaspoon salt\r\nSour cream, optional""",
-                    category="category3")
+                    category=category3)
 session.add(quickmeal1)
 session.commit()
 quickmeal2 = Recipe(user_id=1, name="Parmesan Garlic Grilled Corn On The Cob",
@@ -138,17 +138,24 @@ quickmeal2 = Recipe(user_id=1, name="Parmesan Garlic Grilled Corn On The Cob",
                     cheese, grated/r/n1 teaspoon garlic powder/r/n1/2 cup
                     butter, melted/r/n1/2 teaspoon Food Lion Italian dressing
                     /r/n1/4 teaspoon salt""",
-                    category="category3")
+                    category=category3)
 session.add(quickmeal2)
 session.commit()
 
 
 category4 = Category(user_id=1, name="Dinner")
-
+session.add(category4)
+session.commit()
 category5 = Category(user_id=1, name="Dessert")
-
+session.add(category5)
+session.commit()
 category6 = Category(user_id=1, name="Lunch")
-
+session.add(category6)
+session.commit()
 category7 = Category(user_id=1, name="Snack")
-
+session.add(category7)
+session.commit()
 category8 = Category(user_id=1, name="Brunch")
+session.add(category8)
+session.commit()
+print("Complete!")
