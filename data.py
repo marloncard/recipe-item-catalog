@@ -17,7 +17,7 @@ session.add(user1)
 session.commit()
 
 
-category1 = Category(user_id=1, name="Breakfast")
+category1 = Category(user_id=1, name="breakfast")
 session.add(category1)
 session.commit()
 breakfast1 = Recipe(user_id=1, name="French Toast",
@@ -72,7 +72,7 @@ session.add(breakfast3)
 session.commit()
 
 
-category2 = Category(user_id=1, name="Appetizers")
+category2 = Category(user_id=1, name="appetizers")
 session.add(category2)
 session.commit()
 appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
@@ -109,7 +109,7 @@ session.add(appetizer2)
 session.commit()
 
 
-category3 = Category(user_id=1, name="Quick-Meals")
+category3 = Category(user_id=1, name="quick-meals")
 session.add(category3)
 session.commit()
 quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
@@ -143,19 +143,19 @@ session.add(quickmeal2)
 session.commit()
 
 
-category4 = Category(user_id=1, name="Dinner")
+category4 = Category(user_id=1, name="dinner")
 session.add(category4)
 session.commit()
-category5 = Category(user_id=1, name="Dessert")
+category5 = Category(user_id=1, name="dessert")
 session.add(category5)
 session.commit()
-category6 = Category(user_id=1, name="Lunch")
+category6 = Category(user_id=1, name="lunch")
 session.add(category6)
 session.commit()
-category7 = Category(user_id=1, name="Snack")
+category7 = Category(user_id=1, name="snack")
 session.add(category7)
 session.commit()
-category8 = Category(user_id=1, name="Brunch")
+category8 = Category(user_id=1, name="brunch")
 session.add(category8)
 session.commit()
 print("Complete!")

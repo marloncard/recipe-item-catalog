@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<div class="">
+    <div class="">
+
+        <div class="">
+            {% include "category-sidebar.html" %}
+        </div>
+        <div class="">
+            <h3>{{category.name}}</h3>
+            <ul>
+                {% for recipe in recipes %}
+                <li>
+                    <div class="">
+                        {{recipe.name}}
+                    </div>
+                    <div class="">
+                        {{recipe.instructions}}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

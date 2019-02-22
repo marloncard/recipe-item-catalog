@@ -1,5 +1,5 @@
-from flask import Flask
-from sqlalchemy import create_engine
+from flask import Flask, render_template, request, redirect, url_for
+from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
 from models import Base, Category, Recipe, User
 
@@ -25,10 +25,13 @@ def showCatalog():
     return output
 
 
-# Show all recipes in a particular category
+# Show all recipes in a particular category with sidebar
 @app.route('/catalog/<string:category_name>/recipes')
 def showCategory(category_name):
-    return "<p>This page will show all recipes in %s category!</p>" % category_name
+    categories = session.query(Category).order_by(asc(Category.name))
+    category = session.query(Category).filter_by(name=category_name).one()
+    recipes = session.query(Recipe).filter_by(category_id=category.id)
+    return render_template('recipe-category.html', categories=categories, recipes=recipes, category=category)
 
 
 # Show recipe detail
