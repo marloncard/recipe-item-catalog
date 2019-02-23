@@ -44,20 +44,28 @@ def showRecipe(category_name, recipe_id):
 @app.route('/catalog/<string:category_name>/recipe/new')
 def newRecipe(category_name):
     categories = session.query(Category).order_by(asc(Category.name)).all()
-    # if method == 'POST':
-    #     category = session.query(Category).filter_by(name=request.form['category']).one()
-    #     newrecipe = Recipe(name=request.form['name'],
-    #                        category_id=category.id,
-    #                        instructions=request.form['instructions'],
-    #                        ingredients=request.form['ingredients'],
-    #                        user_id=login_session['user_id'])
+    if method == 'POST':
+        category = session.query(Category).filter_by(name=request.form['category']).one()
+        newrecipe = Recipe(name=request.form['name'],
+                           category_id=category.id,
+                           instructions=request.form['instructions'],
+                           ingredients=request.form['ingredients'],
+                           user_id=login_session['user_id'])
     return render_template('newrecipe.html', category_name=category_name, categories=categories)
 
 
 # Edit a recipe
 @app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/edit')
 def editRecipe(category_name, recipe_id):
-    return "<p>This page is to edit recipe # %s</p>" % recipe_id
+    categories = session.query(Category).order_by(asc(Category.name)).all()
+    if method == 'POST':
+        category = session.query(Category).filter_by(name=request.form['category']).one()
+        editrecipe = Recipe(name=request.form['name'],
+                           category_id=category.id,
+                           instructions=request.form['instructions'],
+                           ingredients=request.form['ingredients'],
+                           user_id=login_session['user_id'])
+    return render_template('newrecipe.html', category_name=category_name, categories=categories)
 
 
 # Delete a recipe
