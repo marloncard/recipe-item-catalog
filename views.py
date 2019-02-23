@@ -36,13 +36,22 @@ def showCategory(category_name):
 # Show recipe detail
 @app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>')
 def showRecipe(category_name, recipe_id):
-    return "<p>This page will show the recipe for recipe# %s in %s</p>" % (recipe_id, category_name)
+    recipe = session.query(Recipe).filter_by(id=recipe_id).one()
+    return render_template('recipe.html', category_name=category_name, recipe=recipe)
 
 
 # Create a new recipe
 @app.route('/catalog/<string:category_name>/recipe/new')
 def newRecipe(category_name):
-    return "<p>This is a page to create new recipes</p>"
+    categories = session.query(Category).order_by(asc(Category.name)).all()
+    # if method == 'POST':
+    #     category = session.query(Category).filter_by(name=request.form['category']).one()
+    #     newrecipe = Recipe(name=request.form['name'],
+    #                        category_id=category.id,
+    #                        instructions=request.form['instructions'],
+    #                        ingredients=request.form['ingredients'],
+    #                        user_id=login_session['user_id'])
+    return render_template('newrecipe.html', category_name=category_name, categories=categories)
 
 
 # Edit a recipe
