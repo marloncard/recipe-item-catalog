@@ -15,7 +15,7 @@
         <pre>{{recipe.ingredients}}</pre>
     </div>
     <div class="">
-        <a href="#">
+        <a href="{{url_for('editRecipe', category_name=category_name, recipe_id=recipe.id)}}">
             <button type="button" name="button">
                 Edit
             </button>

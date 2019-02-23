@@ -41,31 +41,44 @@ def showRecipe(category_name, recipe_id):
 
 
 # Create a new recipe
-@app.route('/catalog/<string:category_name>/recipe/new')
+@app.route('/catalog/<string:category_name>/recipe/new', methods=['GET', 'POST'])
 def newRecipe(category_name):
     categories = session.query(Category).order_by(asc(Category.name)).all()
-    if method == 'POST':
+    if request.method == 'POST':
         category = session.query(Category).filter_by(name=request.form['category']).one()
         newrecipe = Recipe(name=request.form['name'],
                            category_id=category.id,
                            instructions=request.form['instructions'],
                            ingredients=request.form['ingredients'],
-                           user_id=login_session['user_id'])
-    return render_template('newrecipe.html', category_name=category_name, categories=categories)
+                           # user_id=login_session['user_id'])
+                           user_id=1) # Temporary - remove after adding auth
+        session.add(newrecipe)
+        session.commit()
+        return redirect(url_for('showCategory', category_name=category.name))
+    else:
+        return render_template('newrecipe.html', category_name=category_name, categories=categories)
 
 
 # Edit a recipe
-@app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/edit')
+@app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
 def editRecipe(category_name, recipe_id):
     categories = session.query(Category).order_by(asc(Category.name)).all()
-    if method == 'POST':
+    editedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
+    if request.method == 'POST':
         category = session.query(Category).filter_by(name=request.form['category']).one()
-        editrecipe = Recipe(name=request.form['name'],
-                           category_id=category.id,
-                           instructions=request.form['instructions'],
-                           ingredients=request.form['ingredients'],
-                           user_id=login_session['user_id'])
-    return render_template('newrecipe.html', category_name=category_name, categories=categories)
+        if request.form['name']:
+            editedRecipe.name = request.form['name']
+        if request.form['category']:
+            editedRecipe.category_id = category.id
+        if request.form['instructions']:
+            editedRecipe.instructions = request.form['instructions']
+        if request.form['ingredients']:
+            editedRecipe.ingredients = request.form['ingredients']
+        session.add(editedRecipe)
+        session.commit()
+        return redirect(url_for('showCategory', category_name=category.name))
+    else:
+        return render_template('editrecipe.html', category_name=category_name, categories=categories, recipe=editedRecipe)
 
 
 # Delete a recipe
