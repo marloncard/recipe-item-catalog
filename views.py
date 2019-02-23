@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from sqlalchemy import create_engine, asc, desc
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, exc
 from models import Base, Category, Recipe, User
 
 
@@ -13,6 +13,23 @@ engine = create_engine('sqlite:///recipes.db',
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
+
+
+# Return JSON data for all recipes in a category
+@app.route('/catalog/<string:category_name>/recipes/json')
+def showCategoryJSON(category_name):
+    category = session.query(Category).filter_by(name=category_name).one()
+    recipes = session.query(Recipe).filter_by(category_id=category.id).all()
+    category = {"Category": category_name,
+                "Recipes": [r.serialize for r in recipes]}
+    return jsonify(Catalog=category)
+
+
+# Return JSON data for a specific recipe
+@app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/json')
+def showRecipeJSON(category_name, recipe_id):
+        recipe = session.query(Recipe).filter_by(id=recipe_id).one()
+        return jsonify(Recipe=recipe.serialize)
 
 
 # Home page of catalog showing latest recipes added in descending order
@@ -29,7 +46,7 @@ def showCatalog():
 def showCategory(category_name):
     categories = session.query(Category).order_by(asc(Category.name)).all()
     category = session.query(Category).filter_by(name=category_name).one()
-    recipes = session.query(Recipe).filter_by(category_id=category.id)
+    recipes = session.query(Recipe).filter_by(category_id=category.id).all()
     return render_template('recipe-category.html', categories=categories, recipes=recipes, category=category)
 
 
