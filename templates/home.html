@@ -1,7 +1,18 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
+<div class="">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
 
+            <ul>
+            {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
 <div class="">
     <div class="">
 
@@ -12,11 +23,15 @@
             <h3>Latest Items:</h3>
             <ul>
                 {% for recipe in latest_recipes %}
+                {% for category in categories %}
+                {% if category.id == recipe.category_id %}
                 <li>
                     <div class="">
-                        {{recipe.name}}
+                        <a href="{{url_for('showRecipe', category_name=category.name, recipe_id=recipe.id)}}">{{recipe.name}}</a>
                     </div>
                 </li>
+                {% endif %}
+                {% endfor %}
                 {% endfor %}
             </ul>
         </div>

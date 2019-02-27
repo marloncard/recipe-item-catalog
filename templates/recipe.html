@@ -1,7 +1,18 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
+<div class="">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
 
+            <ul>
+            {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
 <div class="">
     <div class="">
         <h3>{{recipe.name}}</h3>

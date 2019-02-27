@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, flash
 from flask import session as login_session
 from flask import make_response
 from sqlalchemy import create_engine, asc, desc
@@ -33,6 +33,7 @@ def login_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         if 'username' not in login_session:
+            flash('Please login')
             return redirect('/login')
         return f(*args, **kwargs)
     return wrapper
@@ -43,11 +44,10 @@ def authorized(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         recipe_id = kwargs["recipe_id"]
-        recipe = session.query(Recipe).filter_by(recipe_id).one()
-        if login_session['user_id'] != recipe.user_id:
-            return "<script>function myFunction() {alert('You are not \
-            authorized to edit this recipe.');}</script><body \
-            onload='myFunction()''>"
+        recipe = session.query(Recipe).filter_by(id=recipe_id).one()
+        if 'user_id' in login_session and login_session['user_id'] != recipe.user_id:
+            flash("You are not authorized to edit that recipe")
+            return render_template('recipe.html', category_name=kwargs["category_name"], recipe=recipe)
         return f(*args, **kwargs)
     return wrapper
 
@@ -300,10 +300,10 @@ def disconnect():
         del login_session['user_id']
         del login_session['provider']
         flash("You have successfully been logged out.")
-        return redirect(url_for('showRestaurants'))
+        return redirect(url_for('showCatalog'))
     else:
         flash("You were not logged in")
-        return redirect(url_for('showRestaurants'))
+        return redirect(url_for('showCatalog'))
 
 
 # Return JSON data for all recipes in a category
@@ -329,6 +329,7 @@ def showRecipeJSON(category_name, recipe_id):
 def showCatalog():
     categories = session.query(Category).order_by(asc(Category.name)).all()
     latest_recipes = session.query(Recipe).order_by(desc(Recipe.id)).limit(10).all()
+    print(login_session)
     return render_template('home.html', categories=categories, latest_recipes=latest_recipes)
 
 
@@ -369,8 +370,8 @@ def newRecipe(category_name):
 
 # Edit a recipe
 @app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/edit', methods=['GET', 'POST'])
-@login_required
 @authorized
+@login_required
 def editRecipe(category_name, recipe_id):
     categories = session.query(Category).order_by(asc(Category.name)).all()
     editedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
@@ -393,8 +394,8 @@ def editRecipe(category_name, recipe_id):
 
 # Delete a recipe
 @app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>/delete', methods=['GET', 'POST'])
-@login_required
 @authorized
+@login_required
 def deleteRecipe(category_name, recipe_id):
     deletedRecipe = session.query(Recipe).filter_by(id=recipe_id).one()
     if request.method == 'POST':
