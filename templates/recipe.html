@@ -13,29 +13,29 @@
         {% endif %}
     {% endwith %}
 </div>
-<div class="">
-    <div class="">
-        <h3>{{recipe.name}}</h3>
-    </div>
-    <div class="">
-        <h4>Instructions</h4>
-        <p>{{recipe.instructions}}</p>
-    </div>
-    <div class="">
-        <h4>Ingredients:</h4>
-        <pre>{{recipe.ingredients}}</pre>
-    </div>
-    <div class="">
-        <a href="{{url_for('editRecipe', category_name=category_name, recipe_id=recipe.id)}}">
-            <button type="button" name="button">
+<div class="container">
+    <div class="row">
+    <div class="col">
+        <div class="">
+            <h3>{{recipe.name}}</h3>
+        </div>
+        <div class="card descriptbox">
+            <h4>Instructions</h4>
+            <p>{{recipe.instructions}}</p>
+        </div>
+        <div class="card descriptbox">
+            <h4>Ingredients:</h4>
+            <pre>{{recipe.ingredients}}</pre>
+        </div>
+        <div class="">
+            <a class="btn btn-warning" href="{{url_for('editRecipe', category_name=category_name, recipe_id=recipe.id)}}">
                 Edit
-            </button>
-        </a>
-        <a href="{{url_for('deleteRecipe', category_name=category_name, recipe_id=recipe.id)}}">
-            <button type="button" name="button">
+            </a>
+            <a class="btn btn-danger" href="{{url_for('deleteRecipe', category_name=category_name, recipe_id=recipe.id)}}">
                 Delete
-            </button>
-        </a>
+            </a>
+        </div>
+        </div>
     </div>
 </div>
 

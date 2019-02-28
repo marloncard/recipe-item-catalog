@@ -5,3 +5,39 @@
     height: 45px;
     margin-right: 10px;
 }
+.btn {
+    width: 75px;
+}
+.lgbutton {
+    width: 125px;
+    margin-bottom: 20px;
+}
+.descriptbox {
+    width: 75%;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+.row {
+    margin-right:auto;
+    margin-left: auto;
+}
+.flash {
+    background-color: #fff484;
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+}
+.flash li {
+    list-style-type: none;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+#google {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#facebook {
+    margin-bottom: 20px
+}

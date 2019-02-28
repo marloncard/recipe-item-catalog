@@ -9,8 +9,8 @@
             {% include "category-sidebar.html" %}
         </div>
         <div class="col-sm-8">
-            <a href="{{url_for('newRecipe', category_name=category.name)}}">
-                <button type="button" name="New Recipe">New Recipe</button>
+            <a class="btn btn-success lgbutton" href="{{url_for('newRecipe', category_name=category.name)}}">
+                New Recipe
             </a>
             <h3 class="text-capitalize">{{category.name}}</h3>
 
