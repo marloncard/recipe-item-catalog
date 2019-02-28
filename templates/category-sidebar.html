@@ -1,6 +1,8 @@
 <h3>Categories:</h3>
-<ul>
+<ul class="list-group">
     {% for category in categories %}
-    <li><a href="{{url_for('showCategory', category_name=category.name)}}">{{category.name}}</a></li>
+    <li class="list-group-item list-group-item-action text-capitalize">
+        <a href="{{url_for('showCategory', category_name=category.name)}}">{{category.name}}</a>
+    </li>
     {% endfor %}
 </ul>

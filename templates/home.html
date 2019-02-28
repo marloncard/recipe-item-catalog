@@ -13,13 +13,12 @@
         {% endif %}
     {% endwith %}
 </div>
-<div class="">
-    <div class="">
-
-        <div class="">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
             {% include "category-sidebar.html" %}
         </div>
-        <div class="">
+        <div class="col-sm-8">
             <h3>Latest Items:</h3>
             <ul>
                 {% for recipe in latest_recipes %}
@@ -35,7 +34,6 @@
                 {% endfor %}
             </ul>
         </div>
-
     </div>
 </div>
 
