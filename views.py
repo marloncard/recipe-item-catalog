@@ -58,7 +58,6 @@ def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
     login_session['state'] = state
-    # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
 
@@ -342,6 +341,14 @@ def showCategory(category_name):
     return render_template('recipe-category.html', categories=categories, recipes=recipes, category=category)
 
 
+# Show all recipes in all categories with sidebar
+@app.route('/catalog/recipes')
+def showRecipes():
+    categories = session.query(Category).order_by(asc(Category.name)).all()
+    recipes = session.query(Recipe).all()
+    return render_template('allrecipes.html', categories=categories, recipes=recipes)
+
+
 # Show recipe detail
 @app.route('/catalog/<string:category_name>/recipe/<int:recipe_id>')
 def showRecipe(category_name, recipe_id):
@@ -363,6 +370,7 @@ def newRecipe(category_name):
                            user_id=login_session['user_id'])
         session.add(newrecipe)
         session.commit()
+        flash("New recipe created!")
         return redirect(url_for('showCategory', category_name=category.name))
     else:
         return render_template('newrecipe.html', category_name=category_name, categories=categories)
@@ -387,6 +395,7 @@ def editRecipe(category_name, recipe_id):
             editedRecipe.ingredients = request.form['ingredients']
         session.add(editedRecipe)
         session.commit()
+        flash("Recipe updated!")
         return redirect(url_for('showCategory', category_name=category.name))
     else:
         return render_template('editrecipe.html', category_name=category_name, categories=categories, recipe=editedRecipe)
@@ -401,9 +410,16 @@ def deleteRecipe(category_name, recipe_id):
     if request.method == 'POST':
         session.delete(deletedRecipe)
         session.commit()
+        flash("Recipe has been deleted!")
         return redirect(url_for('showCategory', category_name=category_name))
     else:
         return render_template('deleterecipe.html', recipe=deletedRecipe)
+
+
+# Show the about page
+@app.route('/about')
+def showAbout():
+    return render_template('about.html')
 
 
 if __name__ == "__main__":

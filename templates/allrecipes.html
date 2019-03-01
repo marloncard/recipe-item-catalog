@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="flash">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+            <ul>
+            {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-4">
+            {% include "category-sidebar.html" %}
+        </div>
+        <div class="col-sm-8">
+            <a class="btn btn-success lgbutton" href="{{url_for('newRecipe', category_name=categories[0].name)}}">
+                New Recipe
+            </a>
+            <h3 class="text-capitalize">All Recipes</h3>
+
+                {% for recipe in recipes %}
+                {% for category in categories %}
+                {% if category.id == recipe.category_id %}
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                        <a href="{{url_for('showRecipe', category_name=category.name, recipe_id=recipe.id)}}">{{recipe.name}}</a>
+                        </h3>
+                        <p class="card-text">{{recipe.instructions}}</p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(window).on("load", truncate);
+</script>
+{% endblock %}
