@@ -31,9 +31,12 @@ breakfast1 = Recipe(user_id=1, name="French Toast",
                     and remove the lid, then transfer the French toast cubes
                     to a serving dish or plates and serve with additional
                     syrup, butter, powdered sugar or whipped cream.""",
-                    ingredients="""8 Thick-cut slices of French bread, cubed\r\n
-                    2 Eggs\r\n1 Cup milk\r\n2 Teaspoons vanilla extract\r\n2
-                    Tablespoons ground cinnamon\r\n1/2 Teaspoon ground ginger""",
+                    ingredients='8 Thick-cut slices of French bread, cubed\r'
+                                '2 Eggs\r'
+                                '1 Cup milk\r'
+                                '2 Teaspoons vanilla extract\r'
+                                '2 Tablespoons ground cinnamon\r'
+                                '1/2 Teaspoon ground ginger',
                     category=category1)
 session.add(breakfast1)
 session.commit()
@@ -46,11 +49,18 @@ breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
                     heat and drop in 1/3 cup of the batter at a time. Flip once
                     when first side is golden brown. Continue until all batter
                     is cooked. Top with maple syrup and serve warm.""",
-                    ingredients="""1 Egg\r\n1 1/4 Cup milk\r\n3 Tablespoons melted
-                    butter\r\n1 Tablespoon sugar\r\n 1 Teaspoon vanilla\r\n1
-                    Teaspoon cinnamon\r\n1/2 Teaspoon ground cloves\r\n1/2 Teaspoon
-                    ground nutmeg\r\n1/2 Teaspoon ground ginger\r\n1 Teaspoon
-                    salt\r\n1 1/2 Cups flour\r\n3 1/2 Teaspoons baking powder""",
+                    ingredients='1 Egg\r'
+                                '1 1/4 Cup milk\r'
+                                '3 Tablespoons melted butter\r'
+                                '1 Tablespoon sugar\r'
+                                '1 Teaspoon vanilla\r'
+                                '1 Teaspoon cinnamon\r'
+                                '1/2 Teaspoon ground cloves\r'
+                                '1/2 Teaspoon ground nutmeg\r'
+                                '1/2 Teaspoon ground ginger\r'
+                                '1 Teaspoon salt\r'
+                                '1 1/2 Cups flour\r'
+                                '3 1/2 Teaspoons baking powder',
                     category=category1)
 session.add(breakfast2)
 session.commit()
@@ -63,10 +73,13 @@ breakfast3 = Recipe(user_id=1, name="Breakfast Egg Muffins",
                     cup of the muffin tin; fill approximately 3/4 full as these
                     will puff up as they cook. Bake in a 350 degree oven for
                     about 20 minutes or until set. Serve hot.""",
-                    ingredients="""12 eggs\r\n1/4 teaspoon pepper\r\n1/2 teaspoon salt
-                    \r\n1/2 teaspoon garlic powder\r\n1/2 an onion, chopped\r\n1/2 of
-                    a green pepper, chopped\r\n1/2 cup cooked bacon, chopped\r\n
-                    4 ounces Cheddar cheese, shredded""",
+                    ingredients='12 eggs\r'
+                                '1/4 teaspoon pepper\r'
+                                '1/2 teaspoon salt\r'
+                                '1/2 teaspoon garlic powder\r'
+                                '1/2 an onion, chopped'
+                                '1/2 of a green pepper, chopped\r'
+                                '1/2 cup cooked bacon, chopped',
                     category=category1)
 session.add(breakfast3)
 session.commit()
@@ -84,14 +97,16 @@ appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
                     then in panko. Spray both sides with oil then transfer to
                     the air fryer and cook 7 to 8 minutes turning halfway.
                     Serve hot with dipping sauce.""",
-                    ingredients="""8 ounces (2 small) avocados, peeled, pitted
-                    and cut into 16 wedges\r\n1 large egg, lightly beaten\r\n
-                    3/4 cup panko breadcrumbs (I used gluten-free)\r\n1 1/4
-                    teaspoons lime chili seasoning salt, such as Tajin Classic
-                    \r\nFor the lime dipping sauce:\r\n1/4 cup 0% Greek Yogurt
-                    \r\n3 tablespoons light mayonnaise\r\n2 teaspoons fresh
-                    lime juice\r\n1/2 teaspoon lime chili seasoning salt, such
-                    as Tajin Classic\r\n1/8 teaspoon kosher salt""",
+                    ingredients='8 ounces (2 small) avocados, peeled, pitted and cut into 16 wedges\r'
+                                '1 large egg, lightly beaten\r'
+                                '3/4 cup panko breadcrumbs (I used gluten-free)\r'
+                                '1 1/4 teaspoons lime chili seasoning salt, such as Tajin Classic\r'
+                                'For the lime dipping sauce:\r'
+                                '1/4 cup 0% Greek Yogurt\r'
+                                '3 tablespoons light mayonnaise\r'
+                                '2 teaspoons fresh lime juice\r'
+                                '1/2 teaspoon lime chili seasoning salt, such as Tajin Classic\r'
+                                '1/8 teaspoon kosher salt',
                     category=category2)
 session.add(appetizer1)
 session.commit()
@@ -100,10 +115,13 @@ appetizer2 = Recipe(user_id=1, name="Basil Aioli with Crudites",
                     processor, and process until smooth. (Will keep, covered in
                     refrigerator, up to 2 days.) Serve with assorted
                     vegetables.""",
-                    ingredients="""1 cup mayonnaise\r\n1/2 cup tightly packed
-                    fresh basil leaves\r\n1 garlic clove, minced \r\n1/2
-                    teaspoon lemon zest \r\n2 teaspoons fresh lemon juice\r\n
-                    Pinch of salt\r\nAssorted vegetables""",
+                    ingredients='1 cup mayonnaise\r'
+                                '1/2 cup tightly packed fresh basil leaves\r'
+                                '1 garlic clove, minced\r'
+                                '1/2 teaspoon lemon zest\r'
+                                '2 teaspoons fresh lemon juice\r'
+                                'Pinch of salt\r'
+                                'Assorted vegetables',
                     category=category2)
 session.add(appetizer2)
 session.commit()
@@ -120,11 +138,14 @@ quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
                     Stir in peas, chili starter, salt and parsley. Bring to
                     boil. Simmer, uncovered around 5 minutes. Serve with sour
                     cream, optionally.""",
-                    ingredients="""1 pound medium potatoes, cubed\r\n1/2 cup
-                    water\r\n1 pound ground beef\r\n1 medium onion,
-                    chopped\r\n1 can (15 1/2 ounces) chili starter\r\n1 cup
-                    frozen peas\r\n2 tablespoons minced fresh parsley\r\n1/4
-                    teaspoon salt\r\nSour cream, optional""",
+                    ingredients='1 pound medium potatoes, cubed\r'
+                                '1/2 cup water\r'
+                                '1 pound ground beef\r'
+                                '1 medium onion, chopped\r'
+                                '1 can (15 1/2 ounces) chili starter\r'
+                                '1 cup frozen peas\r'
+                                '2 tablespoons minced fresh parsley\r'
+                                '1/4 teaspoon salt',
                     category=category3)
 session.add(quickmeal1)
 session.commit()
@@ -134,10 +155,12 @@ quickmeal2 = Recipe(user_id=1, name="Parmesan Garlic Grilled Corn On The Cob",
                     well. Add corn to large piece of foil and pour mixture
                     evenly over the top of the corn. Wrap with more foil so the
                     top is covered. Grill for 30 minutes or until done.""",
-                    ingredients="""4 ears of corn/r/n1/2 cup Food Lion parmesan
-                    cheese, grated/r/n1 teaspoon garlic powder/r/n1/2 cup
-                    butter, melted/r/n1/2 teaspoon Food Lion Italian dressing
-                    /r/n1/4 teaspoon salt""",
+                    ingredients='4 ears of corn\r'
+                                '1/2 cup Food Lion parmesan cheese, grated\r'
+                                '1 teaspoon garlic powder\r'
+                                '1/2 cup butter, melted\r'
+                                '1/2 teaspoon Food Lion Italian dressing\r'
+                                '1/4 teaspoon salt',
                     category=category3)
 session.add(quickmeal2)
 session.commit()

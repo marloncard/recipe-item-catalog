@@ -19,7 +19,7 @@
             {% include "category-sidebar.html" %}
         </div>
         <div class="col-sm-8">
-            <a class="btn btn-success lgbutton" href="{{url_for('newRecipe', category_name="appetizers")}}">
+            <a class="btn btn-success lgbutton" href="{{url_for('newRecipe', category_name=categories[0].name)}}">
                 New Recipe
             </a>
             <h3>Latest Items:</h3>

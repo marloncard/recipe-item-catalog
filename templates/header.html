@@ -2,8 +2,8 @@
 <div class="mr-auto">
     <ul class="navbar-nav">
         <li><a href="{{url_for('showCatalog')}}" class="navbar-brand">Recipe Barn</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{url_for('showCategory', category_name="appetizers")}}">Recipes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url_for('showRecipes')}}">Recipes</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url_for('showAbout')}}">About</a></li>
     </ul>
 </div>
 
@@ -17,9 +17,7 @@
             <img src="{{session['picture']}}" class="rounded-circle" alt="">
             <a class="btn btn-outline-warning" href="{{url_for('disconnect')}}">Logout</a>
         </span>
-
         {% endif %}
-
 </div>
 
 </nav>

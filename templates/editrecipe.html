@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-    <form class="" action="" method="post">
+    <form name="recipeForm" action="" method="post" onsubmit="return validateRecipe()">
         <h3>Edit Recipe</h3>
 
             <div class="form-group">
@@ -14,7 +14,7 @@
 
             <div class="form-group">
             <label for="category">Category:</label>
-            <select class="form-control text-capitalize" class="" name="category">
+            <select class="form-control text-capitalize" name="category">
                 {% for category in categories %}
                 <option value="{{category.name}}" {% if category.name==category_name %}SELECTED{% endif %}>{{category.name}}</option>
                 {% endfor %}
@@ -31,7 +31,7 @@
             <textarea class="form-control" name="ingredients" rows="4" cols="50">{{recipe.ingredients}}</textarea>
             </div>
 
-            <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit">
 
     </form>
     </div>
