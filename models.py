@@ -16,7 +16,6 @@ class User(Base):
     picture = Column(String(250))
 
 
-# Recipe categories should not be edited by users
 class Category(Base):
     __tablename__ = 'category'
 
@@ -54,7 +53,6 @@ class Recipe(Base):
             'id': self.id,
             'instructions': self.instructions,
             'ingredients': self.ingredients,
-            
         }
 
 
