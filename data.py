@@ -11,7 +11,8 @@ session = DBSession()
 
 
 # Create initial user to associate recipes
-user1 = User(name="Admin Bob", email="admin_bob@gmail.com",
+user1 = User(name="Admin Bob",
+             email="admin_bob@gmail.com",
              picture="https://www.publicdomainpictures.net/pictures/270000/velka/apple-piepieicon-sign-food-d.jpg")
 session.add(user1)
 session.commit()
@@ -20,7 +21,8 @@ session.commit()
 category1 = Category(user_id=1, name="breakfast")
 session.add(category1)
 session.commit()
-breakfast1 = Recipe(user_id=1, name="French Toast",
+breakfast1 = Recipe(user_id=1,
+                    name="French Toast",
                     instructions="""Place bread cubes in an instant pot. For
                     chewier French toast, leave the bread out overnight to get
                     slightly stale. Combine all other ingredients in a mixing
@@ -40,7 +42,8 @@ breakfast1 = Recipe(user_id=1, name="French Toast",
                     category=category1)
 session.add(breakfast1)
 session.commit()
-breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
+breakfast2 = Recipe(user_id=1,
+                    name="Chai Pancakes",
                     instructions="""In a large bowl, whisk together the egg,
                     milk, butter, sugar and vanilla. In a separate bowl, stir
                     together cinnamon, cloves, nutmeg, ginger, salt, flour and
@@ -64,7 +67,8 @@ breakfast2 = Recipe(user_id=1, name="Chai Pancakes",
                     category=category1)
 session.add(breakfast2)
 session.commit()
-breakfast3 = Recipe(user_id=1, name="Breakfast Egg Muffins",
+breakfast3 = Recipe(user_id=1,
+                    name="Breakfast Egg Muffins",
                     instructions="""Whisk together the eggs in a large bowl. Add
                     the salt, pepper, garlic powder, onion, green pepper, bacon,
                     and Cheddar and combine all ingredients. Line a muffin tin
@@ -88,7 +92,8 @@ session.commit()
 category2 = Category(user_id=1, name="appetizers")
 session.add(category2)
 session.commit()
-appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
+appetizer1 = Recipe(user_id=1,
+                    name="Avocado Fries with Lime Dipping Sauce",
                     instructions="""Preheat the oven 425F, follow directions
                     above and bake on a sheet pan until golden and crisp, 10 to
                     15 minutes. Place egg in a shallow bowl. On another plate,
@@ -110,7 +115,8 @@ appetizer1 = Recipe(user_id=1, name="Avocado Fries with Lime Dipping Sauce",
                     category=category2)
 session.add(appetizer1)
 session.commit()
-appetizer2 = Recipe(user_id=1, name="Basil Aioli with Crudites",
+appetizer2 = Recipe(user_id=1,
+                    name="Basil Aioli with Crudites",
                     instructions="""Combine first 6 ingredients in a food
                     processor, and process until smooth. (Will keep, covered in
                     refrigerator, up to 2 days.) Serve with assorted
@@ -130,7 +136,8 @@ session.commit()
 category3 = Category(user_id=1, name="quick-meals")
 session.add(category3)
 session.commit()
-quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
+quickmeal1 = Recipe(user_id=1,
+                    name="Chili-Hash",
                     instructions="""In a microwave-safe dish, with water,
                     cover and microwave potatoes on high until tender -
                     around 7 minutes. While potatoes are cooking, brown beef
@@ -149,7 +156,8 @@ quickmeal1 = Recipe(user_id=1, name="Chili-Hash",
                     category=category3)
 session.add(quickmeal1)
 session.commit()
-quickmeal2 = Recipe(user_id=1, name="Parmesan Garlic Grilled Corn On The Cob",
+quickmeal2 = Recipe(user_id=1,
+                    name="Parmesan Garlic Grilled Corn On The Cob",
                     instructions="""Preheat grill to 400F. Melt butter and add
                     cheese, garlic powder, salt, and Italian seasonings. Stir
                     well. Add corn to large piece of foil and pour mixture
@@ -169,9 +177,61 @@ session.commit()
 category4 = Category(user_id=1, name="dinner")
 session.add(category4)
 session.commit()
+dinner1 = Recipe(user_id=1,
+                 name="Savory Goulash",
+                 instructions="""Brown onion and meat. Add tomato sauce and
+                 water. Cook for 2 hours and serve over hot noodles.""",
+                 ingredients='2  sliced onions\r'
+                             '3 tbsp wesson oil\r'
+                             '1 1/2 pounds steak, cubed\r'
+                             '3 tsp paprika\r'
+                             '1 1/2 tsp salt\r'
+                             '1 cup hot water\r'
+                             '8 ounces tomato sauce\r'
+                             '4 tbsp sour cream\r'
+                             'hot buttered noodles\r',
+                 category=category4)
+session.add(dinner1)
+session.commit()
+
 category5 = Category(user_id=1, name="dessert")
 session.add(category5)
 session.commit()
+dessert1 = Recipe(user_id=1, name="Banana Cake",
+                  instructions="Bake in three layer pans at 350 degrees.",
+                  ingredients='1/2 cup shortening\r'
+                               '1 1/2 cups sugar\r'
+                               '2 eggs \r'
+                               'pinch salt \r'
+                               '1/2 cup sour milk\r'
+                               '1 tsp soda water\r'
+                               '1 3/4 cups flour\r'
+                               '1 1/2 tsp baking powder\r'
+                               '1/2 cup chopped nuts\r',
+                  category=category5)
+session.add(dessert1)
+session.commit()
+
+dessert2 = Recipe(user_id=1,
+                  name="Chocolate Cake",
+                  instructions="""Mix all ingredients together.  Pour in 1 cup
+                  boiling water.  Mix well.  Bake about 35 minutes at 375
+                  degrees.""",
+                  ingredients='1/2 cup margarine\r'
+                              '2 cups sugar\r'
+                              '2  eggs\r'
+                              '5 tbsp cocoa\r'
+                              '1/2 tsp salt\r'
+                              '1/2 cup sour milk\r'
+                              '2 tsp baking soda\r'
+                              '2 cups flour\r'
+                              '1/2 tsp cloves\r'
+                              '1 tsp vanilla\r',
+                  category=category5)
+session.add(dessert2)
+session.commit()
+
+
 category6 = Category(user_id=1, name="lunch")
 session.add(category6)
 session.commit()
