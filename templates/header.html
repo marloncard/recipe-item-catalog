@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand bg-dark navbar-dark clearfix">
+
 <div class="mr-auto">
     <ul class="navbar-nav">
         <li><a href="{{url_for('showCatalog')}}" class="navbar-brand">Recipe Barn</a></li>
@@ -9,7 +10,6 @@
 
 
 <div class="navbar-nav ml-auto">
-
         {% if 'username' not in session %}
         <a class="btn btn-outline-primary" href="{{url_for('showLogin')}}">Login</a>
         {% else %}

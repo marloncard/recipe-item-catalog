@@ -41,3 +41,9 @@
 #facebook {
     margin-bottom: 20px
 }
+#latestbox {
+    background-image: url("https://svgsilh.com/png-512/2026279.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 325px 334px;
+}

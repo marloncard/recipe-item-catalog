@@ -1,6 +1,7 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
+
 <div class="flash">
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -13,12 +14,13 @@
         {% endif %}
     {% endwith %}
 </div>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
             {% include "category-sidebar.html" %}
         </div>
-        <div class="col-sm-8">
+        <div id="latestbox" class="col-sm-8">
             <a class="btn btn-success lgbutton" href="{{url_for('newRecipe', category_name=categories[0].name)}}">
                 New Recipe
             </a>
@@ -39,6 +41,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}
