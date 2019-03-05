@@ -51,6 +51,9 @@ To add recipes to the catalog you'll need to login using a Google or Facebook ac
 `/catalog/category_name/recipe/recipe_id/json` Return JSON data for a specific recipe
 
 Homepage Image credit: https://pixabay.com/vectors/fruits-vintage-food-healthy-retro-2026279/
+Recipes Credit:
+https://github.com/cweber/cookbook
+https://www.foodlion.com/
 
 ## LICENSE
 
