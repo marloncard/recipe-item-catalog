@@ -4,15 +4,6 @@ Udacity Full Stack Web Developer Nanodegree
 ## Project Description
 The primary goal of this application is educational. Specifically the objective of the Udacity Item Catalog app project is to develop an application that lists items in a variety of categories which in turn exist in a larger overall catalog. The application will also take advantage of third party authentication systems to allow users to add, edit and delete new items; also providing JSON endpoints.
 
-### Screenshots
-![Homepage](static/images/ss01.png)
-![Recipe](static/images/ss02.png)
-![Homepage logged in](static/images/ss03.png)
-![Recipe logged in](static/images/ss04.png)
-![Category](static/images/ss05.png)
-![New Recipe](static/images/ss06.png)
-![JSON All Recipes](static/images/ss07.png)
-
 Topics/Technologies covered:
 * [Python](https://www.python.org) programming language
 * Third Party [OAuth 2.0](https://oauth.net/2/) authentication (Google and Facebook)
@@ -24,6 +15,17 @@ Topics/Technologies covered:
 * [Flask](http://flask.pocoo.org/) web framework
 * [SQLAlchemy](https://www.sqlalchemy.org/) object-relational mapper (ORM)
 * The application also utilizes [Bootstrap 4](https://getbootstrap.com/), [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5), [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3), and [jQuery](https://jquery.com/)
+
+### Screenshots
+![Homepage](static/images/ss01.png)
+![Recipe](static/images/ss02.png)
+![Homepage logged in](static/images/ss03.png)
+![Recipe logged in](static/images/ss04.png)
+![Category](static/images/ss05.png)
+![New Recipe](static/images/ss06.png)
+![JSON All Recipes](static/images/ss07.png)
+
+
 
 ## Setup
 The application was developed in Atom text editor in Vagrant VM on Mac OS using Python 2.7.12.
@@ -48,12 +50,7 @@ To add recipes to the catalog you'll need to login using a Google or Facebook ac
 `/catalog/category_name/recipes/json` Returns JSON data of all recipes within a category
 `/catalog/category_name/recipe/recipe_id/json` Return JSON data for a specific recipe
 
-
-
-
-
-Home Image:
-https://pixabay.com/vectors/fruits-vintage-food-healthy-retro-2026279/
+Homepage Image credit: https://pixabay.com/vectors/fruits-vintage-food-healthy-retro-2026279/
 
 ## LICENSE
 
