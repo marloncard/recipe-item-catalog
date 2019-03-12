@@ -20,10 +20,11 @@ app = Flask(__name__)
 CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 
+POSTG_PASS = json.loads(
+    open('postgre_pass.json', 'r').read())['password']
 
 # Connect to database and create db session
-engine = create_engine('sqlite:///recipes.db',
-                       connect_args={'check_same_thread': False})
+engine = create_engine('postgresql://catalog:%s@localhost:5432/catalogdb' % POSTG_PASS)
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()

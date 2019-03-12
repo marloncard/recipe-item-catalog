@@ -2,7 +2,10 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
+import json
 
+POSTG_PASS = json.loads(
+    open('postgre_pass.json', 'r').read())['password']
 
 Base = declarative_base()
 
@@ -40,8 +43,8 @@ class Recipe(Base):
     name = Column(String(90), nullable=False)
     category = relationship(Category)
     category_id = Column(Integer, ForeignKey('category.id'))
-    instructions = Column(String(450))
-    ingredients = Column(String(350))
+    instructions = Column(String(1000))
+    ingredients = Column(String(800))
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
 
@@ -56,5 +59,5 @@ class Recipe(Base):
         }
 
 
-engine = create_engine('sqlite:///recipes.db')
+engine = create_engine('postgresql://catalog:%s@localhost:5432/catalogdb' % POSTG_PASS)
 Base.metadata.create_all(engine)

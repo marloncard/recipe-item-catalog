@@ -1,10 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import json
 
 from models import Base, User, Category, Recipe
 
 
-engine = create_engine('sqlite:///recipes.db')
+POSTG_PASS = json.loads(
+    open('postgre_pass.json', 'r').read())['password']
+
+# Connect to database and create db session
+engine = create_engine('postgresql://catalog:%s@localhost:5432/catalogdb' % POSTG_PASS)
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
