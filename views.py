@@ -18,10 +18,10 @@ app = Flask(__name__)
 
 
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open('/var/www/catalog/client_secrets.json', 'r').read())['web']['client_id']
 
 POSTG_PASS = json.loads(
-    open('postgre_pass.json', 'r').read())['password']
+    open('/var/www/catalog/postgre_pass.json', 'r').read())['password']
 
 # Connect to database and create db session
 engine = create_engine('postgresql://catalog:%s@localhost:5432/catalogdb' % POSTG_PASS)
@@ -451,6 +451,5 @@ def showAbout():
 
 
 if __name__ == "__main__":
-    app.secret_key = "super_secret_key"
     app.debug = True
     app.run(host='0.0.0.0', port=5000)
