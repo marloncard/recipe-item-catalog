@@ -17,12 +17,25 @@ Topics/Technologies covered:
 * The application also utilizes [Bootstrap 4](https://getbootstrap.com/), [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5), [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3), and [jQuery](https://jquery.com/)
 
 ### Screenshots
+`home.html (Not Logged In)`
 ![Homepage](static/images/ss01.png)
+
+`editrecipe.html (Not Logged In)`
 ![Recipe](static/images/ss02.png)
+
+`home.html (Logged In)`
 ![Homepage logged in](static/images/ss03.png)
+
+`editrecipe.html (Logged In)`
 ![Recipe logged in](static/images/ss04.png)
+
+`recipe-category.html`
 ![Category](static/images/ss05.png)
+
+`newrecipe.html`
 ![New Recipe](static/images/ss06.png)
+
+`../catalog/breakfast/recipes/json`
 ![JSON All Recipes](static/images/ss07.png)
 
 
@@ -50,9 +63,14 @@ To add recipes to the catalog you'll need to login using a Google or Facebook ac
 `/catalog/category_name/recipes/json` Returns JSON data of all recipes within a category
 `/catalog/category_name/recipe/recipe_id/json` Return JSON data for a specific recipe
 
-Homepage Image credit: https://pixabay.com/vectors/fruits-vintage-food-healthy-retro-2026279/
+Homepage Image credit:
+
+https://pixabay.com/vectors/fruits-vintage-food-healthy-retro-2026279/
+
 Recipes Credit:
+
 https://github.com/cweber/cookbook
+
 https://www.foodlion.com/
 
 ## LICENSE
