@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 import json
 
 POSTG_PASS = json.loads(
-    open('postgre_pass.json', 'r').read())['password']
+    open('/var/www/catalog/postgre_pass.json', 'r').read())['password']
 
 Base = declarative_base()
 
