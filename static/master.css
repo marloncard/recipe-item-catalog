@@ -37,6 +37,10 @@
 #signinButton {
     margin-top: 20px;
     margin-bottom: 10px;
+    background-color:transparent;
+    background-position: 0px 0px;
+    height: 46px;
+    width: 191px;
 }
 #facebook {
     margin-bottom: 20px
