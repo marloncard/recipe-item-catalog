@@ -36,7 +36,7 @@ def login_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         if 'username' not in login_session:
-            flash('Please login')
+            flash('Please Log in')
             return redirect('/login')
         return f(*args, **kwargs)
     return wrapper
