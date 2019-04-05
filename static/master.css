@@ -34,7 +34,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 #signinButton {
+    background-image: url('images/btn_google_signin_dark_normal_web.png');
     margin-top: 20px;
     margin-bottom: 10px;
     background-color: transparent;
@@ -43,8 +45,14 @@
     height: 46px;
     width: 191px;
 }
+#signinButton:hover {
+    background-image: url('images/btn_google_signin_dark_focus_web.png');
+}
+#signinButton:active {
+    background-image: url('images/btn_google_signin_dark_pressed_web.png');
+}
 #facebook {
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 #latestbox {
     background-image: url("https://svgsilh.com/png-512/2026279.png");
