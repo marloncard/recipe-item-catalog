@@ -3,3 +3,4 @@ __pycache__
 .vagrant
 *.json
 *.db
+.DS_Store

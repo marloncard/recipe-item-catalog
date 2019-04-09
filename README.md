@@ -56,6 +56,29 @@ The application was developed in Atom text editor in Vagrant VM on Mac OS using 
 4. Change into the app directory and run: `python views.py`
 5. In your browser navigate to: http://localhost:8000
 
+## Google & Facebook OAuth
+
+To take full advantage of Google and Facebook's Oauth 2.0 login, you'll need to signup for developer accounts with both and then register the app. Upon doing so, both will provide you with secret key's needed for the OAuth process.
+
+### Google:
+
+1. Go to your app's page in the Google API console
+2. Choose credentials from the menu on the left.
+3. Create an OAuth client id.
+4. The will require you to configure the consent screen.
+5. When presented with list of application types, choose web app.
+6. Set the authorized JavaScript origins.
+7. You should now be able to get the client ID and client secret.
+
+### Facebook
+
+1. Create an application.
+2. Click "Add Platform" at bottom of basic settings, select website, then:
+3. Configure the URL site as: http://localhost:5000/
+4. Create a test application from the button in the apps dropdown.
+5. Don't change the default values.
+6. Use in your application code the test application id and secret phrase.
+
 ## Usage
 To add recipes to the catalog you'll need to login using a Google or Facebook account. You'll then be able to create, edit and delete recipes.
 
